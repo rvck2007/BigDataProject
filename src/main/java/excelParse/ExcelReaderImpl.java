@@ -52,7 +52,6 @@ public class ExcelReaderImpl implements ExcelReader{
         ArrayList<Double> ligne = new ArrayList<Double>();
         int numberOfSheets = workbook.getNumberOfSheets();
         String contentValue = null;
-        double value;
         if (sheetNumber >= numberOfSheets || sheetNumber < 0){
             throw new IllegalArgumentException("sheetNumber is not correct!");
         }
@@ -62,6 +61,7 @@ public class ExcelReaderImpl implements ExcelReader{
         Sheet sheet = workbook.getSheet(sheetNumber);
 
         int x = 1;
+        double value;
         do{
             contentValue = sheet.getCell(x, rowNumber).getContents().trim();
             try{
